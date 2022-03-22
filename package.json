@@ -1,0 +1,19 @@
+{
+  "name": "cise_ass1a_worksheet3",
+  "version": "1.0.0",
+  "description": "mern app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MasaGt/cise_ass1a_worksheet3.git"
+  },
+  "author": "Masaomi Goto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MasaGt/cise_ass1a_worksheet3/issues"
+  },
+  "homepage": "https://github.com/MasaGt/cise_ass1a_worksheet3#readme"
+}
