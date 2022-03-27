@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
+var cors = require("cors");
 const app = express();
 let books = require("./routes/api/books.js");
 connectDB();
@@ -15,3 +16,5 @@ app.listen(port, () => {
 });
 
 app.use("/api/books", books);
+app.use(cors({ origin: true, credentials: true }));
+app.use(express.json({ extended: false }));
