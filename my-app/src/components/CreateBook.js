@@ -35,9 +35,8 @@ class CreateBook extends Component {
       publisher: this.state.publisher,
     };
 
-    console.log(this.uri);
     axios
-      .post(this.uri, data)
+      .post("/api/books", data)
       .then((res) => {
         this.setState({
           title: "",
