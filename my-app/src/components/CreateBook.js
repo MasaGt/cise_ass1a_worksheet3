@@ -3,12 +3,9 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
 
-const URI = process.env.API_URI_BOOK || "http://localhost:8082/api/books";
-
 class CreateBook extends Component {
   constructor() {
     super();
-    this.uri = process.env.API_URI_BOOK || "http://localhost:8082/api/books";
     this.state = {
       title: "",
       isbn: "",

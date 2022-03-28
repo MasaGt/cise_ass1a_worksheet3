@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
 
-const URI = process.env.API_URI_BOOK || "http://localhost:8082/api/books";
-
 class showBookDetails extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +14,7 @@ class showBookDetails extends Component {
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get(URI + this.props.match.params.id)
+      .get("/api/books" + this.props.match.params.id)
       .then((res) => {
         // console.log("Print-showBookDetails-API-response: " + res.data);
         this.setState({
@@ -30,7 +28,7 @@ class showBookDetails extends Component {
 
   onDeleteClick(id) {
     axios
-      .delete(URI + id)
+      .delete("/api/books" + id)
       .then((res) => {
         this.props.history.push("/");
       })

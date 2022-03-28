@@ -4,8 +4,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import BookCard from "./BookCard";
 
-const URI = process.env.API_URI_BOOK || "http://localhost:8082/api/books";
-
 class ShowBookList extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +14,7 @@ class ShowBookList extends Component {
 
   componentDidMount() {
     axios
-      .get(URI)
+      .get("/api/books")
       .then((res) => {
         this.setState({
           books: res.data,
