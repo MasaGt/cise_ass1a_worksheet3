@@ -3,6 +3,7 @@
 const express = require("express");
 const connectDB = require("./config/db");
 var cors = require("cors");
+const path = require("path");
 
 // routes
 const books = require("./routes/api/books");
@@ -19,6 +20,14 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ extended: false }));
 
 app.get("/", (req, res) => res.send("Hello world!"));
+
+// Import the my-app build folder
+app.use(express.static(path.resolve(__dirname, "./my-app/build")));
+
+// Ensure that the routes defined with React Router are working once the application has been deployed.
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./my-app/build", "index.html"));
+});
 
 // use Routes
 app.use("/api/books", books);
