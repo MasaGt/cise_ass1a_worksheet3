@@ -19,7 +19,7 @@ app.use(cors({ origin: true, credentials: true }));
 // Init Middleware
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.send("Hello world!"));
+// app.get("/", (req, res) => res.send("Hello world!"));
 
 // Import the my-app build folder
 app.use(express.static("my-app/build"));
