@@ -23,9 +23,12 @@ app.use(express.json({ extended: false }));
 
 if (process.env.NODE_ENV === "production") {
   // Import the my-app build folder
-  app.use(express.static(path.resolve(__dirname, "./my-app/build")));
+  app.use(express.static("my-app/build"));
 
   // Ensure that the routes defined with React Router are working once the application has been deployed.
+  // app.get("*", function (request, response) {
+  //   response.sendFile("./my-app/build", "index.html");
+  // });
   app.get("*", function (request, response) {
     response.sendFile(path.resolve(__dirname, "./my-app/build", "index.html"));
   });
