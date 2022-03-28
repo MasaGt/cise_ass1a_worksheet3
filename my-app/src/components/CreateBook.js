@@ -8,6 +8,7 @@ const URI = process.env.API_URI_BOOK || "http://localhost:8082/api/books";
 class CreateBook extends Component {
   constructor() {
     super();
+    this.uri = process.env.API_URI_BOOK || "http://localhost:8082/api/books";
     this.state = {
       title: "",
       isbn: "",
@@ -35,7 +36,7 @@ class CreateBook extends Component {
     };
 
     axios
-      .post(URI, data)
+      .post(this.uri, data)
       .then((res) => {
         this.setState({
           title: "",
