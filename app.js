@@ -21,13 +21,15 @@ app.use(express.json({ extended: false }));
 
 // app.get("/", (req, res) => res.send("Hello world!"));
 
-// Import the my-app build folder
-app.use(express.static("my-app/build"));
+if (process.env.NODE_ENV === "productin") {
+  // Import the my-app build folder
+  app.use(express.static("my-app/build"));
 
-// Ensure that the routes defined with React Router are working once the application has been deployed.
-app.get("*", function (request, response) {
-  response.sendFile("./my-app/build", "index.html");
-});
+  // Ensure that the routes defined with React Router are working once the application has been deployed.
+  app.get("*", function (request, response) {
+    response.sendFile("./my-app/build", "index.html");
+  });
+}
 
 // use Routes
 app.use("/api/books", books);

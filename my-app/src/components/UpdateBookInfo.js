@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 
+const URI = process.env.API_URI_BOOK || "http://localhost:8082/api/books";
+
 class UpdateBookInfo extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,7 @@ class UpdateBookInfo extends Component {
   componentDidMount() {
     // console.log("Print id: " + this.props.match.params.id);
     axios
-      .get("http://localhost:8082/api/books/" + this.props.match.params.id)
+      .get(URI + this.props.match.params.id)
       .then((res) => {
         // this.setState({...this.state, book: res.data})
         this.setState({
@@ -53,10 +55,7 @@ class UpdateBookInfo extends Component {
     };
 
     axios
-      .put(
-        "http://localhost:8082/api/books/" + this.props.match.params.id,
-        data
-      )
+      .put(URI + this.props.match.params.id, data)
       .then((res) => {
         this.props.history.push("/show-book/" + this.props.match.params.id);
       })

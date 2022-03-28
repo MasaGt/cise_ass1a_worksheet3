@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "../App.css";
 import axios from "axios";
 
+const URI = process.env.API_URI_BOOK || "http://localhost:8082/api/books";
+
 class CreateBook extends Component {
   constructor() {
     super();
@@ -33,7 +35,7 @@ class CreateBook extends Component {
     };
 
     axios
-      .post("http://localhost:8082/api/books", data)
+      .post(URI, data)
       .then((res) => {
         this.setState({
           title: "",
