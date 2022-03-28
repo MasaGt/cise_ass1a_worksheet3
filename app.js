@@ -26,7 +26,7 @@ app.use(express.static("my-app/build"));
 
 // Ensure that the routes defined with React Router are working once the application has been deployed.
 app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./my-app/build", "index.html"));
+  response.sendFile("./my-app/build", "index.html");
 });
 
 // use Routes
