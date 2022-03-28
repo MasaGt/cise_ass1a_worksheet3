@@ -21,7 +21,7 @@ app.use(express.json({ extended: false }));
 
 // app.get("/", (req, res) => res.send("Hello world!"));
 
-if (process.env.NODE_ENV === "productin") {
+if (process.env.NODE_ENV === "production") {
   // Import the my-app build folder
   app.use(express.static("my-app/build"));
 
