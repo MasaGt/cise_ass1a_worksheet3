@@ -29,8 +29,8 @@ if (process.env.NODE_ENV === "production") {
   // app.get("*", function (request, response) {
   //   response.sendFile("./my-app/build", "index.html");
   // });
-  app.get("*", function (request, response) {
-    response.sendFile(path.resolve(__dirname, "/my-app/build", "index.html"));
+  app.get("/", function (request, response) {
+    response.sendFile(path.resolve(__dirname, "./my-app/build", "index.html"));
   });
 }
 
