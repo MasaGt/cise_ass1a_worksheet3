@@ -28,7 +28,7 @@ class showBookDetails extends Component {
 
   onDeleteClick(id) {
     axios
-      .delete("/api/books" + id)
+      .delete("/api/books/" + id)
       .then((res) => {
         this.props.history.push("/");
       })
